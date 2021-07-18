@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui = "http://java.sun.com/jsf/facelets">
+
+<head>
+	<title>title</title>
+</head>
+
+<body>
+	<form th:action="salvarItem">
+		<label for="">Icon Link</label>
+		<input type="text" name="iconHREF" >
+
+		<label for="">Nome Item</label>
+		<input type="text" name="nome">
+
+		<label for="">Description Item</label>
+		<input type="text" name="descItem">
+
+		<select name="tipo">
+			<option value="FISICO">Físico</option>
+			<option value="MAGICO">Mágico</option>
+			<option value="DEFESA">Defesa</option>
+			<option value="BOTA">Bota</option>
+			<option value="ATIVAVEL">Ativável</option>
+		</select>
+
+		<input type="submit" value="Salvar">
+	</form>
+</body>
+
+</html>

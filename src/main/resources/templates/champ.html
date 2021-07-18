@@ -1,0 +1,120 @@
+<html 	xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui = "http://java.sun.com/jsf/facelets">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/admin.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<script src="/js/admin.js"></script>
+	<meta charset="UTF-8">
+	<title>title</title>
+	<style>
+	.center {
+		margin: auto;
+		width: 20%;
+		border: 3px solid green;
+		padding: 10px;
+	}
+	</style>
+</head>
+
+<body>
+
+	<div class="topo">
+		<div class="logo">
+			<a href="/">
+				<span style="color: black;">Wild</span>
+				<span style="color: white;"> Build</span>
+			</a>
+		</div>
+		<div id="menu">
+		 	<a href="/loadMidChamp"> Mid </a> | 
+		 	<a href="/loadBaronChamp"> Baron Lane </a> |
+			<a href="/loadDragonChamp"> Dragon Lane </a> | 
+		 	<a href="/loadSuporteChamp"> Suporte </a> |
+			<a href="/loadJungleChamp"> Jungle </a> |
+		</div>
+
+	</div>
+
+	<div class="nomeIcone">
+		<div id="icone">
+			<img th:src="${champ.iconChampHREF}">
+		</div>
+		
+		<div id="nome">
+			<label th:text="${champ.nome}" ></label>
+		</div>
+	</div>
+	
+	<div class="habilities">
+		<img height="80" width="80" th:src="${passive.iconHabilityHREF}" onclick="showPassive()">
+		<img height="80" width="80" th:src="${q.iconHabilityHREF}" onclick="showQ()" >
+		<img height="80" width="80" th:src="${w.iconHabilityHREF}" onclick="showW()">
+		<img height="80" width="80" th:src="${e.iconHabilityHREF}" onclick="showE()">
+		<img height="80" width="80" th:src="${r.iconHabilityHREF}" onclick="showR()">
+	</div>
+	
+	<div id="passiva" class="skillBox" style="display: none;">
+		<div id="skillImage">
+			<img height="80" id="iconDisplay" width="80" th:src="${passive.iconHabilityHREF}">
+		</div>
+		<div class="center">
+			<p th:text = "*{passive.descHability}"></p>
+		</div>
+	</div>	
+	
+	<div id="q" class="skillBox" style="display: none;">
+		<div id="skillImage">
+			<img height="80" id="iconDisplay" width="80" th:src="${q.iconHabilityHREF}">
+		</div>
+		<div class="center">
+			<p th:text="*{q.descHability}" ></p>
+		</div>
+	</div>
+	
+	<div id="w" class="skillBox" style="display: none;">
+		<div id="skillImage">
+			<img height="80" id="iconDisplay" width="80" th:src="${w.iconHabilityHREF}">
+		</div>
+		<div class="center">
+			<p th:text="*{w.descHability}" ></p>
+		</div>
+	</div>
+	
+	<div id="e" class="skillBox" style="display: none;">
+		<div id="skillImage">
+			<img height="80" id="iconDisplay" width="80" th:src="${e.iconHabilityHREF}">
+		</div>
+		<div class="center">
+			<p th:text="*{e.descHability}" ></p>
+		</div>	
+	</div>
+	
+	<div id="r" class="skillBox" style="display: none;">
+		<div id="skillImage">
+			<img height="80" id="iconDisplay" width="80" th:src="${r.iconHabilityHREF}">
+		</div>
+		<div class="center">
+			<p th:text="*{r.descHability}" readonly></p>
+		</div>	
+	</div>
+
+	<div class="habilities">
+		<div th:each="b : ${builds}" style="text-align: center; border: 10px solid red;">
+	
+			<label th:text="${b.role}"></label>
+			<br>
+			<div th:each="dado : ${b.itens}" style="display: inline-block;">
+				<img th:src="${dado.iconHREF}">
+			</div>
+			<div th:each="dado2 : ${b.speels}" style="display: inline-block;">
+				<img th:src="${dado2.iconHREF}">
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

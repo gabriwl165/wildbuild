@@ -1,0 +1,20 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.nomeIcone {
+	text-align: center;
+}
+
+.habilities {
+	text-align: center;
+}
+
+.skillBox{
+		text-align: center;	
+}
+
+#iconDisplay{
+	display: inline;
+}

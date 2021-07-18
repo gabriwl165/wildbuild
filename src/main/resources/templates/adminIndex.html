@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui = "http://java.sun.com/jsf/facelets">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>	
+</head>	
+<h:body>
+
+	<div class="topo">
+		<div class="logo">
+			Wild<span style="color: white;"> Build</span>
+		</div>
+		<div id="menu">
+		 	<a href=""> Champions </a> | 
+		 	<a href="/itens"> Itens </a> | 
+		 	<a href="/speels"> Speels </a> | 
+		</div>
+
+	</div>
+
+	<div class="champions">
+		<div class="box-champ" style="float: left;" >
+			<div class="img-champ">
+				<a href="adicionarChamp"><img width="80" height="80" src="/img/adicionar.jpeg" alt=""></a>
+			</div>
+		</div>
+		<h:panelGrid th:each="champ : ${champs}" id="panel" columns="2">
+			<div class="box-champ">
+			
+				<div class="img-champ">
+					<a th:href="@{adminLoadChamp/{idchamp}(idchamp=${champ.id})}"><img height="80" width="80" th:src="${champ.iconChampHREF}"></a>
+				</div>
+					
+				<div class="nome-champ"> 
+					<label th:text="${champ.nome}"></label>
+				</div>
+				
+			</div>
+		</h:panelGrid>
+
+	</div>
+</h:body>
+</html>

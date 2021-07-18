@@ -1,0 +1,58 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.topo {
+	background: orange;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.logo {
+	font-size: 45px;
+	font-family:"Times New Roman", Times, serif;
+	height: 50px;
+	margin-bottom: 4%;
+	width:100%;
+	text-align: center;
+}
+
+#menu {
+  	text-align: center;
+}
+
+a {
+	text-decoration:none; 
+}
+
+a:link, a:visited {
+	color: #FFF;
+	padding: 8px 12px;
+}
+
+a:hover {
+	color: #f7b600;
+	background: #FFF;
+}
+
+#panel {
+	float: left;
+}
+
+.champions  {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	padding-left: 50px;
+}
+
+.box-champ {
+	margin-bottom: 5px;
+}
+
+
+.nome-champ{
+	text-align: center;
+	font-family:"Arial", Times, serif;
+}
