@@ -30,9 +30,6 @@ public class Champs {
 	
 	private String iconChampHREF;
 	
-	private String bannerChampHREF;
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -63,6 +60,22 @@ public class Champs {
 
 	public void setIconChampHREF(String iconChampHREF) {
 		this.iconChampHREF = iconChampHREF;
+	}
+
+	public List<Build> getBuilds() {
+		return builds;
+	}
+
+	public void setBuilds(List<Build> builds) {
+		this.builds = builds;
+	}
+
+	public String getImageChampHREF() {
+		return imageChampHREF;
+	}
+
+	public void setImageChampHREF(String imageChampHREF) {
+		this.imageChampHREF = imageChampHREF;
 	}
 
 

@@ -1,6 +1,7 @@
 package com.mobilebuilds.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +56,7 @@ public class AdminChampController {
 	Habilities Ehabilities = null;
 	Habilities Rhabilities = null;
 	HashMap<String, Object> map = new HashMap<String, Object>();
+	List<String> names = new ArrayList<String>();
 
 	@RequestMapping("adicionarChamp")
 	public ModelAndView adicionar() {
@@ -67,6 +69,44 @@ public class AdminChampController {
 		champRepository.save(champ);
 		modelAndView.addObject("champs", champRepository.findAll());
 		return modelAndView;
+	}
+	
+	@RequestMapping("criarChamps")
+	public ModelAndView createAllChamps() {
+		ModelAndView modelAndView = new ModelAndView("adminIndex");
+		
+		createInDataBase();
+		
+		return modelAndView;
+	}
+	
+	public void createInDataBase() {
+		createNames();
+		saveIntoDB();
+		
+	}
+	
+	public void saveIntoDB() {
+		List<String> types = new ArrayList<String>();
+		types.add("passive");
+		types.add("q");
+		types.add("w");
+		types.add("e");
+		types.add("r");
+		for(String nome : names) {
+			Champs champ = new Champs();
+			champ.setNome(nome);
+			champ.setIconChampHREF("https://raw.githubusercontent.com/gabriwl165/wild-rift-images/main/Champs_Icons/"+nome+"Square.png");
+			champ.setImageChampHREF("https://raw.githubusercontent.com/gabriwl165/wild-rift-images/main/Champ/"+nome+".jpg");
+			champRepository.save(champ);
+			for(int i  = 0; i <=4 ;i++) {
+				Habilities hability = new Habilities();
+				hability.setChamps(champ);
+				hability.setIconHabilityHREF("https://raw.githubusercontent.com/gabriwl165/wild-rift-images/main/Skills_Icons/"+nome+"/"+nome.toLowerCase()+"_"+i+".jpg");
+				hability.setNome(types.get(i));
+				habilitiesRepository.save(hability);
+			}
+		}
 	}
 	
 	@RequestMapping(value = "**/salvarPassiva/{idchamp}", method = RequestMethod.POST)
@@ -231,6 +271,79 @@ public class AdminChampController {
 		this.champ = champ;
 	}
 	
+	public void createNames() {
+		names.add("Ahri");
+		names.add("Akali");
+		names.add("Akshan");
+		names.add("Alistar");
+		names.add("Amumu");
+		names.add("Annie");
+		names.add("Ashe");
+		names.add("Aurelion Sol");
+		names.add("Blitzcrank");
+		names.add("Braum");
+		names.add("Camille");
+		names.add("Corki");
+		names.add("Darius");
+		names.add("Diana");
+		names.add("DrMundo");
+		names.add("Draven");
+		names.add("Evelynn");
+		names.add("Ezreal");
+		names.add("Fiora");
+		names.add("Fizz");
+		names.add("Galio");
+		names.add("Garen");
+		names.add("Gragas");
+		names.add("Graves");
+		names.add("Irelia");
+		names.add("Janna");
+		names.add("Jarvan IV");
+		names.add("Jax");
+		names.add("Jhin");
+		names.add("Jinx");
+		names.add("Kai'sa");
+		names.add("Katarina");
+		names.add("Kennen");
+		names.add("Kha'zix");
+		names.add("Lee Sin");
+		names.add("Leona");
+		names.add("Lucian");
+		names.add("Lulu");
+		names.add("Lux");
+		names.add("Malphite");
+		names.add("Master YI");
+		names.add("Miss Fortune");
+		names.add("Nami");
+		names.add("Nasus");
+		names.add("Olaf");
+		names.add("Orianna");
+		names.add("Pantheon");
+		names.add("Rakan");
+		names.add("Rammus");
+		names.add("Renekton");
+		names.add("Rengar");
+		names.add("Riven");
+		names.add("Senna");
+		names.add("Seraphine");
+		names.add("Shyvana");
+		names.add("Singed");
+		names.add("Sona");
+		names.add("Soraka");
+		names.add("Teemo");
+		names.add("Tristana");
+		names.add("Tryndamere");
+		names.add("Twisted Fate");
+		names.add("Varus");
+		names.add("Vayne");
+		names.add("Vi");
+		names.add("Wukong");
+		names.add("Xayah");
+		names.add("Xin Zhao");
+		names.add("Yasuo");
+		names.add("Zed");
+		names.add("Ziggs");
+	}
 	
 	
 }
